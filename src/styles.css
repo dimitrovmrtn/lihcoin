@@ -1,0 +1,84 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ink: var(--ink);
+  --font-display: "Bungee", "Impact", sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 1rem;
+  --background: oklch(0.96 0.06 140);
+  --foreground: oklch(0.2 0.06 155);
+  --ink: oklch(0.2 0.06 155);
+  --card: oklch(0.99 0.02 140);
+  --card-foreground: oklch(0.2 0.06 155);
+  --primary: oklch(0.82 0.22 140);
+  --primary-foreground: oklch(0.18 0.06 155);
+  --accent: oklch(0.7 0.2 165);
+  --accent-foreground: oklch(1 0 0);
+  --muted: oklch(0.94 0.04 140);
+  --muted-foreground: oklch(0.4 0.05 155);
+  --border: oklch(0.2 0.06 155);
+  --destructive: oklch(0.6 0.24 25);
+  --destructive-foreground: oklch(1 0 0);
+  --shadow-brutal: 6px 6px 0 0 var(--ink);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
+  }
+}
+
+@utility btn-brutal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.5rem;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  box-shadow: 6px 6px 0 0 var(--ink);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+@utility btn-brutal-hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 0 var(--ink);
+}
+@utility card-brutal {
+  border: 3px solid var(--ink);
+  border-radius: 1.25rem;
+  background: var(--card);
+  box-shadow: 6px 6px 0 0 var(--ink);
+}
